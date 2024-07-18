@@ -1,0 +1,19 @@
+<form #workoutForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user"></i>
+            </span>
+            <input type="text" pInputText placeholder="Username" [(ngModel)]="username" name="username" required />
+        </div>
+        <p-dropdown [options]="workouts" optionLabel="name" [(ngModel)]="selectedWorkout" name="workout"></p-dropdown>
+
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-clock"></i></span>
+            <input type="number" pInputText placeholder="Time" [(ngModel)]="time" name="time" required />
+        </div>
+    </div>
+    <div class="card flex">
+        <button type="submit" pButton label="Add Workout" [disabled]="!workoutForm.form.valid"></button>
+    </div>
+</form>

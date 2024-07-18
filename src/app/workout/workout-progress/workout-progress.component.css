@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .user-list {
+    flex: 1;
+    padding-left: 30px;
+  }
+ .workout-chart {
+    flex: 2;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  

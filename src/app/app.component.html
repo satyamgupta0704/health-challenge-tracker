@@ -1,0 +1,26 @@
+<p-toast></p-toast>
+<div class="card">
+  <p-tabView styleClass="tabview-custom">
+      <p-tabPanel>
+          <ng-template pTemplate="header">
+              <i class="pi pi-plus"></i>
+              <span>Add workout</span>
+          </ng-template>
+          <app-add-workout></app-add-workout>
+      </p-tabPanel>
+      <p-tabPanel header="Users">
+          <ng-template pTemplate="header">
+              <i class="pi pi-users"></i>
+              <span>Users</span>
+          </ng-template>
+          <app-users-list></app-users-list>
+      </p-tabPanel>
+      <p-tabPanel header="Workout Progress">
+          <ng-template pTemplate="header">
+            <i class="pi pi-chart-bar"></i>
+            <span>Workout Progress</span>
+          </ng-template>
+          <app-workout-progress></app-workout-progress>
+      </p-tabPanel>
+  </p-tabView>
+</div>

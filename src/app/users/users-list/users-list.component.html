@@ -1,0 +1,46 @@
+<div class="card">
+    <p-table [value]="userData" [tableStyle]="{'min-width': '60rem'}"
+             #dt1
+             [paginator]="true"
+             [rows]="5"
+             [showCurrentPageReport]="true"
+             [tableStyle]="{ 'min-width': '50rem' }"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+             [rowsPerPageOptions]="[5, 10, 20]"
+             [globalFilterFields]="['name', 'workouts']">
+        <ng-template pTemplate="caption">
+            <div class="t-header">
+                <div>
+                    <p-dropdown [options]="workouts"
+                                placeholder="Filter by Workout"
+                                (onChange)="onWorkoutFilterChange($event.value)">
+                    </p-dropdown>
+                    <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clearFilters()"></button>
+                </div>
+
+                <div>
+                <span class="p-input-icon-right mr-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="filterGlobal($event)" placeholder="Search" />
+                </span>
+            </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:20%">Name</th>
+                <th style="width:20%">Workouts</th>
+                <th style="width:20%">Number of Workouts</th>
+                <th style="width:20%">Total Workout minutes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-userData>
+            <tr *ngIf="filterWorkoutType(userData.workouts)">
+                <td>{{userData.name}}</td>
+                <td>{{getWorkoutTypes(userData.workouts)}}</td>
+                <td>{{userData.workouts.length}}</td>
+                <td>{{getWorkoutMinutes(userData.workouts)}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,17 @@
+
+<div class="card">
+    <div class="user-list">
+      <h1>Users List</h1>
+      <ul>
+        <li *ngFor="let user of userData" (click)="onSelectUser(user)">
+          <strong>{{ user.name }}</strong>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="selectedUser" class="workout-chart">
+      <h3>Workout Chart for {{ selectedUser.name }}</h3>
+      <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+    </div>
+  </div>
+  
